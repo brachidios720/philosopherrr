@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/06/26 17:17:06 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/01 16:34:51 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ long	find_ms(void);
 
 // initialisation 
 
-void init_philo(t_setting *set, t_philo *philo);
+void init_philo(t_setting *set);
 int init_settings(t_setting *set);
 void init_forks(t_setting *set);
 

@@ -8,7 +8,7 @@ void init_forks(t_setting *set)
         i++;
     }
 }
-void init_philo(t_setting *set, t_philo *philo)
+void init_philo(t_setting *set)
 {
     int i = 0;
     while(i < set->num_philo)
@@ -17,11 +17,11 @@ void init_philo(t_setting *set, t_philo *philo)
         set->philo[i].last_meal = 0;
         set->philo[i].left = i;
         set->philo[i].right = (i + 1) % set->num_philo;
-        i++;
         ft_printf("id = %d\n", set->philo[i].id);
         ft_printf("last_meal = %d\n", set->philo[i].last_meal);
         ft_printf("left = %d\n", set->philo[i].left);
-        ft_printf("right = %d\n", philo->right);
+        ft_printf("right = %d\n", set->philo[i].right);
+        i++;
     }
 }
 
