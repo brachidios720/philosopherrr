@@ -13,6 +13,7 @@ void init_philo(t_setting *set)
     int i = 0;
     while(i < set->num_philo)
     {
+        set->philo[i].die = 0;
         set->philo[i].id = i;
         set->philo[i].last_meal = 0;
         set->philo[i].left = i;
@@ -38,25 +39,3 @@ int init_settings(t_setting *set)
     return(0);
 }
 
-
-
-// typedef struct philo_s
-// {
-// 	long last_meal; // dernier repas
-// 	int id; // identifiant du philo
-	
-// } t_philo;
-
-// typedef struct setting_s
-// {
-// 	int num_philo; // nombre de philo
-// 	int t_die; // temps de mort
-// 	int t_eat; // temps de repas
-// 	int t_sleep; // temps de repos
-// 	int how_much; // combien de repas
-// 	int start_time; // lancement du programme
-// 	pthread_t num; // les threads 
-// 	pthread_mutex_t *forks; // fourchettes
-//     t_philo *philo; // acces paramettre des philos
-	
-// } t_setting;

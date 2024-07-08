@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/01 16:34:51 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/07/04 18:49:07 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct philo_s
 	int		id;	//num philo 
 	int left; // gauche
 	int right; // droite
+	int die;
+	
 } t_philo;
 
 typedef struct setting_s
@@ -61,3 +63,4 @@ void init_forks(t_setting *set);
 void	ft_exit(int i);
 void	ft_clear(t_setting *set);
 void 	ft_error(int i, t_setting *set);
+
