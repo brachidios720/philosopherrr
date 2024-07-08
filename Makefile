@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+         #
+#    By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 19:14:23 by rcarbonn          #+#    #+#              #
-#    Updated: 2024/06/26 15:34:03 by rcarbonn         ###   ########.fr        #
+#    Updated: 2024/07/08 16:45:40 by raphaelcarb      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ src = 	src/philo.c \
 		src/utils.c \
 		src/init.c \
 		src/error.c	\
+		src/pick_forks \
 
 srco = $(src:.c=.o)
 

@@ -33,33 +33,3 @@ void ft_pars_args(int ac, char **av, t_setting *set)
     if(ac == 6)
         set->how_much=ft_atoi_dif(av[5]);
 }
-// int ft_parse_args(int ac, char **av, t_setting philo)
-// {
-//     int i;
-//     int num;
-
-//     i = 1;
-//     while(i < ac)
-//     {
-//         num = atoi(av[i]);
-//         if(!ft_isdigit(num))
-//             return (1);
-//         if(num < 0)
-//             return (1);
-//         if(num > 200)
-//         {
-//             printf("too much philo");
-//             exit(0);
-//             return(1);
-//         }
-//         i++;
-//     }
-//     return(0);
-// }
-
-// int ft_check_args(int ac, char **av)
-// {
-//     int i;
-
-//     if(av[1][i] < 0)
-// }
