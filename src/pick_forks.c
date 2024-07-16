@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:48:05 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/08 16:56:50 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/07/15 21:43:08 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,36 +33,3 @@ void    ft_pick_forks(t_setting *set, t_philo *philo)
     }
 }
 
-// #include "philo.h"
-
-// void    ft_pick_forks(t_setting *set, t_philo *philo)
-// {
-//     // Vérifie si le philosophe est encore en vie
-//     if (set->die != 1)
-//     {
-//         // Le philosophe essaie de prendre la fourchette de gauche
-//         pthread_mutex_lock(&philo->set->forks[philo->left]);
-//         // Ajout d'un message pour savoir que la fourchette de gauche est prise
-//         printf("Philosopher %d has taken the left fork %d\n", philo->id, philo->left);
-
-//         // Le philosophe essaie de prendre la fourchette de droite
-//         pthread_mutex_lock(&philo->set->forks[philo->right]);
-//         // Ajout d'un message pour savoir que la fourchette de droite est prise
-//         printf("Philosopher %d has taken the right fork %d\n", philo->id, philo->right);
-
-//         // Si les deux fourchettes sont prises, le philosophe peut manger
-//         // Logique pour manger, par exemple :
-//         philo->last_meal = get_time();
-//         printf("Philosopher %d is eating\n", philo->id);
-
-//         // Simule le temps pour manger
-//         usleep(philo->set->time_to_eat * 1000);
-
-//         // Le philosophe a fini de manger et repose les fourchettes
-//         pthread_mutex_unlock(&philo->set->forks[philo->right]);
-//         printf("Philosopher %d has put down the right fork %d\n", philo->id, philo->right);
-
-//         pthread_mutex_unlock(&philo->set->forks[philo->left]);
-//         printf("Philosopher %d has put down the left fork %d\n", philo->id, philo->left);
-//     }
-// }
