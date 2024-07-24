@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/24 17:19:13 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/07/24 19:16:16 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct setting_s t_setting;
 
 typedef struct philo_s
 {
-	struct s_setting *set;
+	t_setting *set;
 	long 			last_meal; // dernier repas
 	int	num_p;
 	int				id;	//id du philo 
@@ -72,7 +72,7 @@ void 	ft_error(int i, t_setting *set);
 // routine
 
 void ft_eat(t_philo *philo);
-void ft_routine(void *p);
+void *ft_routine(void *p);
 void ft_start(t_setting *set);
 
 

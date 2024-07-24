@@ -6,7 +6,7 @@
 #    By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 19:14:23 by rcarbonn          #+#    #+#              #
-#    Updated: 2024/07/08 16:45:40 by raphaelcarb      ###   ########.fr        #
+#    Updated: 2024/07/24 17:21:23 by raphaelcarb      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ src = 	src/philo.c \
 		src/utils.c \
 		src/init.c \
 		src/error.c	\
-		src/pick_forks \
+		src/pick_forks.c \
+		src/ft_routine.c \
+		src/ft_race.c 
 
 srco = $(src:.c=.o)
 
