@@ -29,6 +29,7 @@ int init_settings(t_setting *set)
     set->start_time = find_ms();
     set->die = 0;
     set->forks = malloc(sizeof(pthread_mutex_t) * set->num_philo);
+    set->p = malloc(sizeof(pthread_t) * set->num_philo);
     set->philo = malloc(sizeof(t_philo) * set->num_philo);
     if(!set->forks || !set->philo)
         return(1);

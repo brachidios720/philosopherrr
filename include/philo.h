@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
+/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/24 19:16:16 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/07/25 15:41:47 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PHILO_H
+#define PHILO_H
 
 #include <pthread.h>
 #include <stdlib.h>
@@ -23,8 +26,8 @@ typedef struct setting_s t_setting;
 typedef struct philo_s
 {
 	t_setting *set;
-	long 			last_meal; // dernier repas
-	int	num_p;
+	long long			last_meal; // dernier repas
+	int				num_p;
 	int				id;	//id du philo 
 	int 			left; // gauche
 	int 			right; // droite
@@ -55,19 +58,23 @@ void    ft_pars_args(int ac, char **av, t_setting *set);
 int     ft_atoi_dif(char *str);
 int     ft_isdigit_dif(char *str);
 long	find_ms(void);
+void 	ft_usleep(int n, t_setting *set);
 
 // initialisation 
 
 void init_philo(t_setting *set);
 int init_settings(t_setting *set);
 void init_forks(t_setting *set);
-void    ft_pick_forks(t_setting *set, t_philo *philo);
+void ft_pick_forks(t_setting *set, t_philo *philo);
+void ft_pick_fork(t_setting *set, t_philo *philo);
+void pick_forks(t_setting *set, t_philo *philo);
 
 // error
 
 void	ft_exit(int i);
 void	ft_clear(t_setting *set);
 void 	ft_error(int i, t_setting *set);
+int 	ft_is_dead(t_philo *philo);
 
 // routine
 
@@ -76,4 +83,4 @@ void *ft_routine(void *p);
 void ft_start(t_setting *set);
 
 
-
+#endif

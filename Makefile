@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+         #
+#    By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 19:14:23 by rcarbonn          #+#    #+#              #
-#    Updated: 2024/07/24 17:21:23 by raphaelcarb      ###   ########.fr        #
+#    Updated: 2024/07/25 14:26:58 by rcarbonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ src = 	src/philo.c \
 		src/error.c	\
 		src/pick_forks.c \
 		src/ft_routine.c \
-		src/ft_race.c 
+		src/ft_race.c \
 
 srco = $(src:.c=.o)
 

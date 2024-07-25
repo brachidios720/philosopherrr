@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:02:20 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/06/26 15:33:15 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/25 14:23:31 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,18 @@ void ft_exit(int i)
 	if(i == 1)
 		ft_printf("ERROR\n");
 	exit(0);
+}
+
+void ft_usleep(int n, t_setting *set)
+{
+	long long start;
+	long long now;
+	start = find_ms();
+	while(set->die != 1 && set->how_much < set->philo->id)
+	{
+		now = find_ms();
+		if((start - now) >= (long)n)
+			break;
+		usleep(500);
+	}
 }
