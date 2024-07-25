@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:48:05 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/25 15:49:06 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/25 16:54:31 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    ft_pick_forks(t_setting *set, t_philo *philo)
 {
-    if(set->die != 1)
+    if(1)
     {
         if(!pthread_mutex_lock(&set->forks[philo->left]))
         ft_printf("Philosopher %d has taken the left fork %d\n", philo->id, philo->left);
@@ -27,7 +27,7 @@ void    ft_pick_forks(t_setting *set, t_philo *philo)
 
 void    ft_pick_fork(t_setting *set, t_philo *philo)
 {
-    if(set->die != 1)
+    if(1)
     {
         if(!pthread_mutex_lock(&set->forks[philo->right]))
         ft_printf("Philosopher %d has taken the right fork %d\n", philo->id, philo->left);

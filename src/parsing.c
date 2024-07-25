@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/25 18:05:57 by rcarbonn          #+#    #+#             */
+/*   Updated: 2024/07/25 18:05:58 by rcarbonn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/philo.h"
 
 
@@ -31,5 +43,5 @@ void ft_pars_args(int ac, char **av, t_setting *set)
     set->t_sleep = ft_atoi_dif(av[3]);
     set->t_eat = ft_atoi_dif(av[4]);
     if(ac == 6)
-        set->how_much=ft_atoi_dif(av[5]);
+        set->how_much =ft_atoi_dif(av[5]);
 }

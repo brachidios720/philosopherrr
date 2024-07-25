@@ -6,7 +6,7 @@
 #    By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 19:14:23 by rcarbonn          #+#    #+#              #
-#    Updated: 2024/07/25 14:26:58 by rcarbonn         ###   ########.fr        #
+#    Updated: 2024/07/25 18:00:19 by rcarbonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ RM = rm -rf
 src = 	src/philo.c \
 		src/parsing.c \
 		src/utils.c \
+		src/utils2.c \
 		src/init.c \
 		src/error.c	\
 		src/pick_forks.c \

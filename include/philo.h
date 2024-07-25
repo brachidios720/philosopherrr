@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/25 15:41:47 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:04:41 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ typedef struct setting_s
 	int t_eat; // temps de repas
 	int t_sleep; // temps de repos
 	int how_much; // combien de repas
+	int hate;
 	int die;
 	long long start_time; // lancement du programme
+	pthread_mutex_t *print;
 	pthread_t *p; // les threads 
 	pthread_mutex_t *forks; // fourchettes
     t_philo *philo; // acces paramettre des philos
@@ -81,6 +83,7 @@ int 	ft_is_dead(t_philo *philo);
 void ft_eat(t_philo *philo);
 void *ft_routine(void *p);
 void ft_start(t_setting *set);
+void ft_print(t_philo *philo, char *s);
 
 
 #endif

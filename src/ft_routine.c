@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:10:24 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/25 15:44:36 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/25 18:01:15 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void ft_eat(t_philo *philo)
     pick_forks(set, philo);
     ft_usleep(set->t_eat, philo->set);
     philo->last_meal = find_ms();
-    printf("Philosopher %d is eating\n", philo->id);
+    ft_print(philo, "is eating");
+    set->hate++;
     pthread_mutex_unlock(&set->forks[philo->left]);
     pthread_mutex_unlock(&set->forks[philo->right]);
     philo->left_hand = 0;
@@ -34,24 +35,32 @@ int ft_is_dead(t_philo *philo)
     cur = find_ms();
     if((philo->last_meal - cur) > set->t_die)
     {
-        printf("philo %d is dead\n", philo->id);
+        ft_print(philo, "is dead");
         return(1);
     }
-    return(0);
+    else
+    {
+        printf("%lld\n", cur);
+        printf("%lld\n", philo->last_meal);
+        return(0);
+    }
 }
 
 void *ft_routine(void *p)
 {
     t_philo *philo; 
     philo = (t_philo *)p;
-    printf("Philosopher %d is thinking\n", philo->id);
+    ft_print(philo, "is thinking\n");
      
-    while(ft_is_dead(philo) == 0)
+     
+    if(philo->id % 2 == 1)
+        ft_usleep(60, philo->set);
+    while(philo->set->die != 1)
     {
         ft_eat(philo);
-        printf("philosopher %d is slepping\n", philo->id);
+        ft_print(philo, "is sleeping");
         ft_usleep(philo->set->t_sleep, philo->set);
-        printf("Philosopher %d is thinking\n", philo->id);
+        ft_print(philo, "is thinking\n");
     }
     return(NULL);
 }

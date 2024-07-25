@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 18:06:00 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/25 18:06:01 by rcarbonn         ###   ########.fr       */
+/*   Created: 2024/07/25 17:46:28 by rcarbonn          #+#    #+#             */
+/*   Updated: 2024/07/25 18:05:10 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-int	main(int ac, char **av)
+void    ft_print(t_philo *philo, char *s)
 {
-	t_setting set;
-
-	if (ac != 5 && ac != 6)
-		ft_exit(1);
-	ft_pars_args(ac, av, &set);
-	if(init_settings(&set) == 1)
-		ft_error(1, &set);
-	ft_start(&set);
-	ft_clear(&set);
+    t_setting *set;
+    
+    set = philo->set;
+    pthread_mutex_lock(philo->set->print);
+    if(set->die != 1)
+        printf("philo %d %s\n",philo->id, s);
+    pthread_mutex_unlock(philo->set->print);
 }
