@@ -6,43 +6,49 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:48:05 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/25 16:54:31 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:20:53 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-void    ft_pick_forks(t_setting *set, t_philo *philo)
+void    ft_pick_forks(t_philo *philo)
 {
-    if(1)
+    t_setting *set;
+
+    set = philo->set;
+    if(ft_is_dead(philo) != 1)
     {
-        if(!pthread_mutex_lock(&set->forks[philo->left]))
-        ft_printf("Philosopher %d has taken the left fork %d\n", philo->id, philo->left);
+        if(!pthread_mutex_lock(&philo->set->forks[philo->left]))
+        ft_print(philo, "has taken the left fork\n");
         philo->left_hand = 1;
-        if(!pthread_mutex_lock(&set->forks[philo->right]))
-        ft_printf("Philosopher %d has taken the right fork %d\n", philo->id, philo->right);
+        if(!pthread_mutex_lock(&philo->set->forks[philo->right]) && philo->right_hand)
+        ft_print(philo, "has taken the right fork\n");
         philo->right_hand = 1;
     }
 }
 
-void    ft_pick_fork(t_setting *set, t_philo *philo)
+void    ft_pick_fork(t_philo *philo)
 {
-    if(1)
+    t_setting *set;
+
+    set = philo->set;
+    if(ft_is_dead(philo) != 1)
     {
-        if(!pthread_mutex_lock(&set->forks[philo->right]))
-        ft_printf("Philosopher %d has taken the right fork %d\n", philo->id, philo->left);
+        if(!pthread_mutex_lock(&philo->set->forks[philo->right]))
+        ft_print(philo, "has taken the right fork\n");
         philo->left_hand = 1;
-        if(!pthread_mutex_lock(&set->forks[philo->left]))
-        ft_printf("Philosopher %d has taken the left fork %d\n", philo->id, philo->right);
+        if(!pthread_mutex_lock(&philo->set->forks[philo->left]) && philo->left_hand)
+        ft_print(philo, "has taken the left fork\n");
         philo->right_hand = 1;
     }
 }
 
-void    pick_forks(t_setting *set, t_philo *philo)
+void    pick_forks(t_philo *philo)
 {
-    if(philo->id % 2 == 1)
-        ft_pick_fork(set, philo);
+    if(philo->id % 2 == 0)
+        ft_pick_fork(philo);
     else 
-        ft_pick_forks(set, philo);
+        ft_pick_forks(philo);
 }
 

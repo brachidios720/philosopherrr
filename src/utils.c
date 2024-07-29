@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:02:20 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/25 16:55:20 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:48:05 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void ft_exit(int i)
 	exit(0);
 }
 
-void ft_usleep(int n, t_setting *set)
+void ft_usleep(int n,t_philo *philo)
 {
 	long long start;
 	long long now;
 	start = find_ms();
-	while(set->die != 1 && set->hate < set->how_much)
+	while(ft_is_dead(philo) != 1)
 	{
 		now = find_ms();
 		if((start - now) >= (long)n)

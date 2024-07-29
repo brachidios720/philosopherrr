@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/25 18:04:41 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:48:30 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct setting_s
 	int hate;
 	int die;
 	long long start_time; // lancement du programme
-	pthread_mutex_t *print;
+	pthread_mutex_t print;
 	pthread_t *p; // les threads 
 	pthread_mutex_t *forks; // fourchettes
     t_philo *philo; // acces paramettre des philos
@@ -60,16 +60,16 @@ void    ft_pars_args(int ac, char **av, t_setting *set);
 int     ft_atoi_dif(char *str);
 int     ft_isdigit_dif(char *str);
 long	find_ms(void);
-void 	ft_usleep(int n, t_setting *set);
+void 	ft_usleep(int n, t_philo *philo);
 
 // initialisation 
 
 void init_philo(t_setting *set);
 int init_settings(t_setting *set);
 void init_forks(t_setting *set);
-void ft_pick_forks(t_setting *set, t_philo *philo);
-void ft_pick_fork(t_setting *set, t_philo *philo);
-void pick_forks(t_setting *set, t_philo *philo);
+void ft_pick_forks(t_philo *philo);
+void ft_pick_fork(t_philo *philo);
+void pick_forks(t_philo *philo);
 
 // error
 

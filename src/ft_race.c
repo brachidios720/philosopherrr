@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:34:41 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/25 16:30:04 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/29 15:51:19 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void ft_start(t_setting *set)
     i = 0;
     while (i < set->num_philo)
     {
-        pthread_join(set->p[i], NULL);
+        pthread_join(set->p[i], 0);
         i++;
     }
 
