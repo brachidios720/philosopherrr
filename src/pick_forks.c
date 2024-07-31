@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:48:05 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/29 15:20:53 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/31 16:07:25 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ void    ft_pick_forks(t_philo *philo)
     {
         if(!pthread_mutex_lock(&philo->set->forks[philo->left]))
         ft_print(philo, "has taken the left fork\n");
-        philo->left_hand = 1;
-        if(!pthread_mutex_lock(&philo->set->forks[philo->right]) && philo->right_hand)
+        if(!pthread_mutex_lock(&philo->set->forks[philo->right]))
         ft_print(philo, "has taken the right fork\n");
-        philo->right_hand = 1;
     }
 }
 
@@ -37,10 +35,8 @@ void    ft_pick_fork(t_philo *philo)
     {
         if(!pthread_mutex_lock(&philo->set->forks[philo->right]))
         ft_print(philo, "has taken the right fork\n");
-        philo->left_hand = 1;
-        if(!pthread_mutex_lock(&philo->set->forks[philo->left]) && philo->left_hand)
+        if(!pthread_mutex_lock(&philo->set->forks[philo->left]))
         ft_print(philo, "has taken the left fork\n");
-        philo->right_hand = 1;
     }
 }
 

@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:02:20 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/29 15:48:05 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/31 16:10:54 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void ft_usleep(int n,t_philo *philo)
 	while(ft_is_dead(philo) != 1)
 	{
 		now = find_ms();
-		if((start - now) >= (long)n)
+		if((now - start) >= (long)n)
 			break;
-		usleep(500);
+		usleep(100);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:10:24 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/29 15:48:53 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/31 16:13:26 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@ void ft_eat(t_philo *philo)
     
     set = philo->set;
     pick_forks(philo);
-    ft_usleep(set->t_eat, philo);
-    philo->last_meal = find_ms();
     ft_print(philo, "is eating\n");
+    philo->last_meal = find_ms();
+    ft_usleep(set->t_eat, philo);
     set->hate++;
-    pthread_mutex_unlock(&set->forks[philo->left]);
     pthread_mutex_unlock(&set->forks[philo->right]);
-    philo->left_hand = 0;
-    philo->right_hand = 0;
+    pthread_mutex_unlock(&set->forks[philo->left]);
 }
 int ft_is_dead(t_philo *philo)
 {
@@ -39,15 +37,13 @@ int ft_is_dead(t_philo *philo)
    // printf("quand c est - = %lld\n", (cur - philo->last_meal));
     if((cur - philo->last_meal) > set->t_die)
     {
-        ft_print(philo, "is dead\n");
-        return(1);
+       pthread_mutex_lock(&set->print);
+       ft_print(philo, "is dead\n");
+       pthread_mutex_unlock(&set->print);
+       set->die = 1;
+       return(1);
     }
-    else
-    {
-        //printf("%lld\n", cur);
-        //printf("%lld\n", philo->last_meal);
-        return(0);
-    }
+    return(0);
 }
 
 void *ft_routine(void *p)

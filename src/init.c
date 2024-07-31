@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:05:54 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/29 14:55:20 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:44:20 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void init_forks(t_setting *set)
     int i = 0;
     while(i < set->num_philo)
     {
-        pthread_mutex_init(&set->forks[i], 0);
+        pthread_mutex_init(&set->forks[i], NULL);
         i++;
     }
 }
