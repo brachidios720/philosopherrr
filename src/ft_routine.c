@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:10:24 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/31 16:13:26 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/07/31 18:48:07 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void ft_eat(t_philo *philo)
     
     set = philo->set;
     pick_forks(philo);
-    ft_print(philo, "is eating\n");
+    ft_print(philo, "\033[0;32mis eating\033[0m\n");
     philo->last_meal = find_ms();
     ft_usleep(set->t_eat, philo);
     set->hate++;
@@ -31,16 +31,12 @@ int ft_is_dead(t_philo *philo)
        
     long long cur;
     cur = find_ms();
-   // printf("cur = %lld\n", cur);
-   // printf("last meal = %lld \n", philo->last_meal);
-   // printf("die = %d\n", set->t_die);
-   // printf("quand c est - = %lld\n", (cur - philo->last_meal));
-    if((cur - philo->last_meal) > set->t_die)
+    if((cur - philo->last_meal) >= set->t_die)
     {
-       pthread_mutex_lock(&set->print);
-       ft_print(philo, "is dead\n");
-       pthread_mutex_unlock(&set->print);
+       ft_print(philo, "\033[0;31mis dead\033[0m\n");
        set->die = 1;
+       if(set->die == 1)
+        exit(1);
        return(1);
     }
     return(0);
