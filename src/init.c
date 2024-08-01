@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:05:54 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/31 15:44:20 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/01 19:02:21 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void init_philo(t_setting *set)
         set->philo[i].last_meal = find_ms();
         set->philo[i].left = i;
         set->philo[i].right = (i + 1) % set->num_philo;
-        set->philo[i].left_hand = 0;
-        set->philo[i].right_hand = 0;
         set->philo[i].num_p = i;
         set->philo[i].set = set;
     }
@@ -40,6 +38,7 @@ int init_settings(t_setting *set)
 {
     set->start_time = find_ms();
     set->die = 0;
+    set->all_hate = 0;
     set->hate = 0;
     pthread_mutex_init(&set->print, NULL);
     set->forks = malloc(sizeof(pthread_mutex_t) * set->num_philo);

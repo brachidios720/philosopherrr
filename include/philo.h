@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/29 15:48:30 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/01 19:02:07 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ typedef struct setting_s
 	int t_eat; // temps de repas
 	int t_sleep; // temps de repos
 	int how_much; // combien de repas
-	int hate;
+	int all_hate;
 	int die;
+	int hate;
 	long long start_time; // lancement du programme
 	pthread_mutex_t print;
 	pthread_t *p; // les threads 

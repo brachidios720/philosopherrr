@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:02:20 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/31 16:10:54 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/01 16:49:36 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_atoi_dif(char *str)
 		i++;
 	}
 	if(res > 2147483647 || res < -2147483647)
-		ft_exit(1);
+		ft_exit(0);
 	return(res);
 }
 

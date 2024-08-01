@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:34:41 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/07/31 18:24:29 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/01 19:25:59 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void ft_start(t_setting *set)
         pthread_join(set->p[i], NULL);
         i++;
     }
-
 }
 
 

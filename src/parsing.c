@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:05:57 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/07/25 18:05:58 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/01 19:30:32 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,6 @@ void ft_pars_args(int ac, char **av, t_setting *set)
     set->t_eat = ft_atoi_dif(av[4]);
     if(ac == 6)
         set->how_much =ft_atoi_dif(av[5]);
+    else 
+        set->how_much = -1;
 }
