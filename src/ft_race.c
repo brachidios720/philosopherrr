@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:34:41 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/08/01 19:25:59 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/02 17:01:40 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void ft_start(t_setting *set)
         pthread_create(&set->p[i], NULL, ft_routine, &set->philo[i]);
         i++;
     }
+    pthread_create(set->check, NULL, ft_check_die, NULL);
     i = 0;
     while (i < set->num_philo)
     {
@@ -30,31 +31,3 @@ void ft_start(t_setting *set)
     }
 }
 
-
-// void ft_start(t_setting *set)
-// {
-//     int i;
-
-//     i = 0;
-//     while (i < set->num_philo)
-//     {
-//         if (pthread_create(&set->p[i], NULL, ft_routine, &set->philo[i]) != 0)
-//         {
-//             // Gérer l'erreur si pthread_create échoue
-//             printf("Erreur lors de la création du thread %d\n", i);
-//             exit(EXIT_FAILURE);
-//         }
-//         i++;
-//     }
-//     i = 0;
-//     while (i < set->num_philo)
-//     {
-//         if (pthread_join(set->p[i], NULL) != 0)
-//         {
-//             // Gérer l'erreur si pthread_join échoue
-//             printf("Erreur lors de la jointure du thread %d\n", i);
-//             exit(EXIT_FAILURE);
-//         }
-//         i++;
-//     }
-// }

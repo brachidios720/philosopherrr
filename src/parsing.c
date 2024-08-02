@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:05:57 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/01 19:30:32 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:26:46 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ void ft_pars_args(int ac, char **av, t_setting *set)
         i++;
     }
     set->num_philo = ft_atoi_dif(av[1]);
+    if(set->num_philo <= 1)
+        ft_exit(2);
     set->t_die  = ft_atoi_dif(av[2]);
-    set->t_sleep = ft_atoi_dif(av[3]);
-    set->t_eat = ft_atoi_dif(av[4]);
+    set->t_eat = ft_atoi_dif(av[3]);
+    set->t_sleep = ft_atoi_dif(av[4]);
     if(ac == 6)
         set->how_much =ft_atoi_dif(av[5]);
     else 

@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/01 19:02:07 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:57:28 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct philo_s
 	int 			right; // droite
 	int 			left_hand;
 	int 			right_hand;
+	int 			hate;
 	
 } t_philo;
 
@@ -45,9 +46,9 @@ typedef struct setting_s
 	int how_much; // combien de repas
 	int all_hate;
 	int die;
-	int hate;
 	long long start_time; // lancement du programme
 	pthread_mutex_t print;
+	pthread_t *check;
 	pthread_t *p; // les threads 
 	pthread_mutex_t *forks; // fourchettes
     t_philo *philo; // acces paramettre des philos
@@ -78,6 +79,7 @@ void	ft_exit(int i);
 void	ft_clear(t_setting *set);
 void 	ft_error(int i, t_setting *set);
 int 	ft_is_dead(t_philo *philo);
+void    *ft_check_die(void *p);
 
 // routine
 

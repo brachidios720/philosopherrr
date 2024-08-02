@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:46:28 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/01 19:32:03 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/02 17:01:16 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,16 @@ void    ft_print(t_philo *philo, char *s)
         printf("%lld Philosopher %d %s",(find_ms() - philo->set->start_time) ,philo->id, s);
     }
     pthread_mutex_unlock(&philo->set->print);
+}
+
+void    *ft_check_die(void *p)
+{
+    t_philo *philo; 
+    philo = (t_philo *)p;
+    while(ft_is_dead(philo) != 1)
+    {
+        return(0);
+    }
+    exit(0);
+    
 }

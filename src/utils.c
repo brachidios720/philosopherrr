@@ -6,7 +6,7 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:02:20 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/08/01 16:49:36 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:06:49 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void ft_exit(int i)
 {
 	if(i == 1)
 		ft_printf("ERROR\n");
+	if(i == 2)
+		ft_printf("wrong number of philo\n");
 	exit(0);
 }
 
