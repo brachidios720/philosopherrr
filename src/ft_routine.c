@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_routine.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:10:24 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/08/02 16:50:15 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:59:06 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void ft_eat(t_philo *philo)
     pthread_mutex_unlock(&set->forks[philo->right]);
     pthread_mutex_unlock(&set->forks[philo->left]);
 }
+
 int ft_is_dead(t_philo *philo)
 {
     t_setting *set = philo->set;
@@ -45,8 +46,7 @@ int ft_is_dead(t_philo *philo)
        ft_print(philo, "\033[0;31mis dead\033[0m\n");
        set->die = 1;
        if(set->die == 1)
-        exit(0);
-       return(1);
+        return(1);
     }
     return(0);
 }

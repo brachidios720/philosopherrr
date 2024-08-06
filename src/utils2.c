@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:46:28 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/02 17:01:16 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/06 12:49:18 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,16 @@ void    ft_print(t_philo *philo, char *s)
 
 void    *ft_check_die(void *p)
 {
-    t_philo *philo; 
-    philo = (t_philo *)p;
-    while(ft_is_dead(philo) != 1)
+    t_setting *set;
+    t_philo *philo;
+
+    while(set->die != 1)
     {
-        return(0);
+        int cur = find_ms();
+        if((cur - philo->last_meal) >= set->t_die)
+        {
+            set->die = 1;
+        }
     }
-    exit(0);
-    
 }
+
