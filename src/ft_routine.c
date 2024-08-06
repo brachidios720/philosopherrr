@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:10:24 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/08/05 14:59:06 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/06 15:45:59 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ft_eat(t_philo *philo)
     t_setting *set;
     set = philo->set;
     pick_forks(philo);
-    if (ft_is_dead(philo) == 0)
+    if (set->die != 1)
     {
         ft_print(philo, "\033[0;32mis eating\033[0m\n");
         philo->last_meal = find_ms();
@@ -35,21 +35,21 @@ void ft_eat(t_philo *philo)
     pthread_mutex_unlock(&set->forks[philo->left]);
 }
 
-int ft_is_dead(t_philo *philo)
-{
-    t_setting *set = philo->set;
+// int ft_is_dead(t_philo *philo)
+// {
+//     t_setting *set = philo->set;
        
-    long long cur;
-    cur = find_ms();
-    if((cur - philo->last_meal) >= set->t_die)
-    {
-       ft_print(philo, "\033[0;31mis dead\033[0m\n");
-       set->die = 1;
-       if(set->die == 1)
-        return(1);
-    }
-    return(0);
-}
+//     long long cur;
+//     cur = find_ms();
+//     if((cur - philo->last_meal) >= set->t_die)
+//     {
+//        ft_print(philo, "\033[0;31mis dead\033[0m\n");
+//        set->die = 1;
+//        if(set->die == 1)
+//         return(1);
+//     }
+//     return(0);
+// }
 
 void *ft_routine(void *p)
 {
@@ -59,7 +59,7 @@ void *ft_routine(void *p)
      
     if(philo->id % 2 == 1)
         ft_usleep(60, philo);
-    while((ft_is_dead(philo) != 1))
+    while((philo->set->die != 1))
     {
         ft_eat(philo);
         if(philo->hate == philo->set->how_much)

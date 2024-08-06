@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:05:54 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/02 16:57:54 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:10:10 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void init_philo(t_setting *set)
     int i = -1;
     while(++i < set->num_philo)
     {
-        set->philo[i].id = i;
+        set->philo[i].id = i + 1;
         set->philo[i].last_meal = find_ms();
         set->philo[i].left = i;
         set->philo[i].right = (i + 1) % set->num_philo;

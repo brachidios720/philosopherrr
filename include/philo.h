@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/06 12:49:36 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/06 15:42:45 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct philo_s
 	int 			left_hand;
 	int 			right_hand;
 	int 			hate;
+	long long			start_philo;
 	
 } t_philo;
 

@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:46:28 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/06 12:49:18 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/06 16:09:29 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void    ft_print(t_philo *philo, char *s)
     pthread_mutex_lock(&philo->set->print);
     if(set->die != 1 && set->all_hate < set->num_philo) 
     {
-        printf("%lld Philosopher %d %s",(find_ms() - philo->set->start_time) ,philo->id, s);
+        printf("%lld Philosopher %d %s",(find_ms() - philo->start_philo) ,philo->id, s);
     }
     pthread_mutex_unlock(&philo->set->print);
 }
@@ -27,15 +27,25 @@ void    ft_print(t_philo *philo, char *s)
 void    *ft_check_die(void *p)
 {
     t_setting *set;
-    t_philo *philo;
+    int i = 0;
+
+    set = (t_setting *)p;
 
     while(set->die != 1)
     {
-        int cur = find_ms();
-        if((cur - philo->last_meal) >= set->t_die)
+        while(i < set->num_philo)
         {
-            set->die = 1;
+            long long cur = find_ms();
+            if((cur - set->philo[i].last_meal) >= set->t_die)
+            {
+             ft_print(&set->philo[i], "\033[0;31mis dead\033[0m\n");
+             set->die = 1;
+             return(0);
+            }
+            i++;
         }
+        i=0;
     }
+    return(0);
 }
 
