@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:10:24 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/08/07 17:22:54 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/07 18:39:48 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void ft_eat(t_philo *philo)
     {
         ft_print(philo, "\033[0;32mis eating\033[0m\n");
         // philo->last_meal = find_ms() + set->t_die;
-        philo->last_meal = find_ms();
         if(set->how_much > 0)
         {
             philo->hate++;
@@ -31,9 +30,12 @@ void ft_eat(t_philo *philo)
             }
         }
     }
+    philo->last_meal = find_ms();
     ft_usleep(set->t_eat, philo);
-    pthread_mutex_unlock(&set->forks[philo->right]);
     pthread_mutex_unlock(&set->forks[philo->left]);
+    ft_print(philo, "\033[0;32mpause gauche\033[0m\n");
+    pthread_mutex_unlock(&set->forks[philo->right]);
+    ft_print(philo, "\033[0;32mpause droite\033[0m\n");
     philo->left_hand = 0;
     philo->right_hand = 0;
 }
@@ -53,6 +55,7 @@ void *ft_routine(void *p)
         ft_print(philo, "is sleeping\n");
         ft_usleep(philo->set->t_sleep, philo);
         ft_print(philo, "is thinking\n");
+        ft_usleep(5, philo);
     }
     return(0);
 }
