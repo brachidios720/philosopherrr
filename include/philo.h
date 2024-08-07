@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/06 15:42:45 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/07 15:34:00 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void ft_eat(t_philo *philo);
 void *ft_routine(void *p);
 void ft_start(t_setting *set);
 void ft_print(t_philo *philo, char *s);
+void	ft_declaredeath(t_setting *set, int i );
 
 
 #endif

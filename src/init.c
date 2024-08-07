@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:05:54 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/06 16:10:10 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/07 13:45:34 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,15 @@ void init_philo(t_setting *set)
     int i = -1;
     while(++i < set->num_philo)
     {
-        set->philo[i].id = i + 1;
+        set->philo[i].id = i ;
         set->philo[i].last_meal = find_ms();
         set->philo[i].left = i;
         set->philo[i].right = (i + 1) % set->num_philo;
         set->philo[i].num_p = i;
         set->philo[i].set = set;
         set->philo[i].hate = 0;
+        set->philo[i].start_philo = 0;
+        //printf("num de philo = %d\n", aet-> )
     }
 }
 

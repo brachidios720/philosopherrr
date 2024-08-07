@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:10:24 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/08/06 15:45:59 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/07 17:22:54 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void ft_eat(t_philo *philo)
     if (set->die != 1)
     {
         ft_print(philo, "\033[0;32mis eating\033[0m\n");
+        // philo->last_meal = find_ms() + set->t_die;
         philo->last_meal = find_ms();
         if(set->how_much > 0)
         {
@@ -29,10 +30,31 @@ void ft_eat(t_philo *philo)
                 set->all_hate++;
             }
         }
-        ft_usleep(set->t_eat, philo);
     }
+    ft_usleep(set->t_eat, philo);
     pthread_mutex_unlock(&set->forks[philo->right]);
     pthread_mutex_unlock(&set->forks[philo->left]);
+    philo->left_hand = 0;
+    philo->right_hand = 0;
+}
+
+
+void *ft_routine(void *p)
+{
+    t_philo *philo; 
+    philo = (t_philo *)p;
+    ft_print(philo, "is thinking\n");
+     
+    while((philo->set->die != 1))
+    {
+        ft_eat(philo);
+        if(philo->hate == philo->set->how_much)
+            return(0);
+        ft_print(philo, "is sleeping\n");
+        ft_usleep(philo->set->t_sleep, philo);
+        ft_print(philo, "is thinking\n");
+    }
+    return(0);
 }
 
 // int ft_is_dead(t_philo *philo)
@@ -50,23 +72,3 @@ void ft_eat(t_philo *philo)
 //     }
 //     return(0);
 // }
-
-void *ft_routine(void *p)
-{
-    t_philo *philo; 
-    philo = (t_philo *)p;
-    ft_print(philo, "is thinking\n");
-     
-    if(philo->id % 2 == 1)
-        ft_usleep(60, philo);
-    while((philo->set->die != 1))
-    {
-        ft_eat(philo);
-        if(philo->hate == philo->set->how_much)
-            return(0);
-        ft_print(philo, "is sleeping\n");
-        ft_usleep(philo->set->t_sleep, philo);
-        ft_print(philo, "is thinking\n");
-    }
-    return(0);
-}

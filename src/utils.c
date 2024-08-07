@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:02:20 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/08/06 15:45:11 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/07 17:26:40 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,25 @@ long	find_ms(void)
 	struct timeval current_time;
 	long long ms;
 	
-	gettimeofday(&current_time, 0);
-	ms = current_time.tv_sec * 1000 + current_time.tv_usec / 1000;
+	gettimeofday(&current_time, NULL);
+	ms = ((current_time.tv_sec * 1000) + (current_time.tv_usec / 1000));
 	return(ms);
 }
 
 void	ft_clear(t_setting *set)
 {
-	free(set->forks);
-	free(set->philo);
+    int i;
+	i = 0;
+    
+    while (i < set->num_philo)
+    {
+        pthread_mutex_destroy(&set->forks[i]);
+		i++; 
+    }
+    pthread_mutex_destroy(&set->print);
+    free(set->forks);
+    free(set->philo);
+    free(set->p);
 }
 
 void ft_exit(int i)
@@ -65,6 +75,6 @@ void ft_usleep(int n,t_philo *philo)
 		now = find_ms();
 		if((now - start) >= (long)n)
 			break;
-		usleep(100);
+		usleep(10);
 	}
 }
