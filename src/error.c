@@ -6,18 +6,18 @@
 /*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:28:08 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/06/26 15:30:45 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/08 18:18:46 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-void ft_error(int i, t_setting *set)
+void	ft_error(int i, t_setting *set)
 {
-    if(i == 1)
-    {
-        ft_printf("error\n");
-        ft_clear(set);
-    }
-    exit(0);
+	if (i == 1)
+	{
+		ft_printf("error\n");
+		ft_clear(set);
+	}
+	exit(0);
 }

@@ -6,12 +6,12 @@
 #    By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 19:14:23 by rcarbonn          #+#    #+#              #
-#    Updated: 2024/08/02 16:10:12 by rcarbonn         ###   ########.fr        #
+#    Updated: 2024/08/08 18:15:37 by rcarbonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -Wall -Werror -Wextra -g3 -pthread
+CFLAGS = -Wall -Werror -Wextra -pthread #-g3 -fsanitize=thread
 LINK = libft/libft.a
 LIBFT_DIR = ./libft
 LIBFT_LIB = -lft
