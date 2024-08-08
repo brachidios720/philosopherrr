@@ -6,7 +6,7 @@
 /*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:46:28 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/07 17:08:49 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/08 15:03:48 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void    *ft_check_die(void *p)
         int i = 0;
         while(i < set->num_philo)
         {
-            // printf("lastmeal = %lld, find_ms = %ld, res = %lld\n", set->philo[i].last_meal, find_ms(), (find_ms() - set->philo[i].last_meal));
             if((find_ms() - set->philo[i].last_meal) >= set->t_die)
             {
                 ft_print(&set->philo[i], "\033[0;31mis dead\033[0m\n");
@@ -46,16 +45,14 @@ void    *ft_check_die(void *p)
         }
         if (set->how_much != -1 && set->all_hate >= set->num_philo)
             return (0);
-        
-        usleep(100);
     }
     return(0);
 }
 
 void	ft_declaredeath(t_setting *set, int i )
 {
-	ft_print(&set->philo[i], "\033[0;31mis dead\033[0m\n");
 	set->die = 1;
+	ft_print(&set->philo[i], "\033[0;31mis dead\033[0m\n");
 }
 
 // void    *ft_check_die(void *p)
