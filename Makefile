@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+         #
+#    By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 19:14:23 by rcarbonn          #+#    #+#              #
-#    Updated: 2024/08/08 18:15:37 by rcarbonn         ###   ########.fr        #
+#    Updated: 2024/08/11 19:10:02 by raphaelcarb      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -Wall -Werror -Wextra -pthread #-g3 -fsanitize=thread
+CFLAGS = -Wall -Werror -Wextra -pthread -g3 #-fsanitize=thread
 LINK = libft/libft.a
 LIBFT_DIR = ./libft
 LIBFT_LIB = -lft

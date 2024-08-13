@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:05:54 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/08 18:19:48 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/12 17:01:14 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init_philo(t_setting *set)
 int	init_settings(t_setting *set)
 {
 	set->start_time = find_ms();
-	set->die = 0;
+	set->die = ft_check_time(set);
 	set->all_hate = 0;
 	pthread_mutex_init(&set->check, NULL);
 	pthread_mutex_init(&set->print, NULL);

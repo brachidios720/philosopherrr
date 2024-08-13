@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:05:57 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/08 18:29:38 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/12 19:13:10 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ int	ft_isdigit_dif(char *str)
 	while (str[i])
 	{
 		if (str[i] >= '0' && str[i] <= '9')
-			return (0);
+			i++;
 		else
 			return (1);
-		i++;
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/08 18:17:45 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/13 17:00:53 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int							ft_atoi_dif(char *str);
 int							ft_isdigit_dif(char *str);
 long						find_ms(void);
 void						ft_usleep(int n, t_philo *philo);
+int							ft_check_time(t_setting *set);
+int							ft_for_one(t_philo *philo);
 
 // initialisation
 

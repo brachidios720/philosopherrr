@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:02:20 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/08/08 18:21:56 by rcarbonn         ###   ########.fr       */
+/*   Updated: 2024/08/13 17:30:01 by raphaelcarb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_clear(t_setting *set)
 		i++;
 	}
 	pthread_mutex_destroy(&set->print);
-	pthread_mutex_destroy(&set->check);
+	//pthread_mutex_destroy(&set->check);
 	free(set->forks);
 	free(set->philo);
 	free(set->p);
@@ -64,7 +64,7 @@ void	ft_exit(int i)
 		ft_printf("\033[0;31mwrong number of philo\033[0m\n");
 	if (i == 3)
 		ft_printf("\033[0;31merror, \
-time is under 60 ms for 1 or more value\033[0m\n");
+time is under 60 ms or above max or min int for 1 or more value\033[0m\n");
 	exit(0);
 }
 
