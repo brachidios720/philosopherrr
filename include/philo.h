@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
+/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 19:26:06 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/13 17:00:53 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/14 17:01:53 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct setting_s
 	long long start_time;   // lancement du programme
 	pthread_mutex_t print;  // pour print
 	pthread_mutex_t check;  // acces a la mort
+	pthread_mutex_t diee; // check la mort;
 	pthread_t *p;           // les threads
 	pthread_mutex_t *forks; // fourchettes
 	t_philo *philo;         // acces paramettre des philos
@@ -87,5 +88,7 @@ void						ft_eat(t_philo *philo);
 void						*ft_routine(void *p);
 void						ft_start(t_setting *set);
 void						ft_print(t_philo *philo, char *s);
+//void						ft_sleep_and_think(t_philo *philo);
+//int							ft_should_continue(t_philo *philo);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
+/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:02:20 by raphaelcarb       #+#    #+#             */
-/*   Updated: 2024/08/13 17:30:01 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/14 16:59:02 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,21 @@ void	ft_usleep(int n, t_philo *philo)
 {
 	long long	start;
 	long long	now;
+	int is_dead;
 
 	start = find_ms();
+	is_dead = 0;
+	//pthread_mutex_lock(&philo->set->check);
 	while (philo->set->die != 1)
 	{
 		now = find_ms();
 		if ((now - start) >= (long)n)
 			break ;
 		usleep(10);
+		//pthread_mutex_lock(&philo->set->check);
+		//if (philo->set->die)
+		//	is_dead = 1;
+		//pthread_mutex_unlock(&philo->set->check);
 	}
+	//pthread_mutex_unlock(&philo->set->check);
 }

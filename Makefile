@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+         #
+#    By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/22 19:14:23 by rcarbonn          #+#    #+#              #
-#    Updated: 2024/08/11 19:10:02 by raphaelcarb      ###   ########.fr        #
+#    Updated: 2024/08/14 17:11:05 by rcarbonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = clang
-CFLAGS = -Wall -Werror -Wextra -pthread -g3 #-fsanitize=thread
+CFLAGS = -Wall -Werror -Wextra -pthread -g3 -fsanitize=thread
 LINK = libft/libft.a
 LIBFT_DIR = ./libft
 LIBFT_LIB = -lft
@@ -27,6 +27,7 @@ src = 	src/philo.c \
 		src/pick_forks.c \
 		src/ft_routine.c \
 		src/ft_race.c \
+		#src/ft_sleep_think.c \
 
 srco = $(src:.c=.o)
 

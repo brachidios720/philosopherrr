@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphaelcarbonnel <raphaelcarbonnel@stud    +#+  +:+       +#+        */
+/*   By: rcarbonn <rcarbonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:46:28 by rcarbonn          #+#    #+#             */
-/*   Updated: 2024/08/13 18:34:45 by raphaelcarb      ###   ########.fr       */
+/*   Updated: 2024/08/14 17:12:38 by rcarbonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,21 @@ void	ft_print(t_philo *philo, char *s)
 {
 	t_setting	*set;
 
+	int is_dead;
+
+	is_dead = 0;
 	set = philo->set;
-	pthread_mutex_lock(&philo->set->print);
-	if (set->die != 1 && set->all_hate < set->num_philo)
+	// pthread_mutex_lock(&philo->set->print);
+	if ((!is_dead) && set->all_hate < set->num_philo)
 	{
 		printf("\033[38;5;214m%lld\033[0m %d %s", (find_ms()
 				- philo->start_philo), philo->id + 1, s);
+		pthread_mutex_lock(&philo->set->check);
+		if (philo->set->die)
+			is_dead = 1;
+		pthread_mutex_unlock(&philo->set->check);
 	}
-	pthread_mutex_unlock(&philo->set->print);
+	// pthread_mutex_unlock(&philo->set->print);
 }
 
 void	*ft_check_die(void *p)
@@ -42,20 +49,55 @@ void	*ft_check_die(void *p)
 				pthread_mutex_lock(&set->check);
 				if ((find_ms() - set->philo[i].last_meal) >= set->t_die)
 				{
-					pthread_mutex_unlock(&set->check);
 					ft_print(&set->philo[i], "\033[0;31mis dead\033[0m\n");
 					set->die = 1;
-					return (0);
+					return(0);
+					pthread_mutex_unlock(&set->check);
 				}
-				pthread_mutex_unlock(&set->check);
+				else
+					pthread_mutex_unlock(&set->check);
 				i++;
 			}
 			if (set->how_much != -1 && set->all_hate >= set->num_philo)
 				return (0);
 		}
 	}
-	return (0);
+	return(0);
 }
+
+// void	*ft_check_die(void *p)
+// {
+// 	t_setting	*set = (t_setting *)p;
+// 	int			i;
+
+// 	while (1)
+// 	{
+// 		i = 0;
+// 		while (i < set->num_philo)
+// 		{
+// 			pthread_mutex_lock(&set->check);
+// 			if ((find_ms() - set->philo[i].last_meal) >= set->t_die)
+// 			{
+// 				ft_print(&set->philo[i], "\033[0;31mis dead\033[0m\n");
+// 				set->die = 1;
+// 				pthread_mutex_unlock(&set->check);
+// 				return (0);
+// 			}
+// 			pthread_mutex_unlock(&set->check);
+// 			i++;
+// 		}
+		
+// 		pthread_mutex_lock(&set->check);
+// 		if (set->die == 1 || (set->how_much != -1 && set->all_hate >= set->num_philo))
+// 		{
+// 			pthread_mutex_unlock(&set->check);
+// 			return (0);
+// 		}
+// 		pthread_mutex_unlock(&set->check);
+// 	}
+// }
+
+
 
 int	ft_check_time(t_setting *set)
 {
@@ -73,12 +115,12 @@ int	ft_check_time(t_setting *set)
 		return(0);
 	if(set->num_philo % 2 == 1)
 	{
-		if(d >= (e * 4) && d >= (e + s))
+		if(d >= (e * 4) && d > (e + s))
 			return(2);
 	}
 	if(set->num_philo % 2 == 0)
 	{
-		if(d >= (e * 2) && d >= (e + s))
+		if(d >= (e * 2) && d > (e + s))
 			return(2);
 	}
 	return(0);
